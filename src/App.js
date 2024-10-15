@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { Home } from "./pages/Home";
 import { Carrito } from "./pages/Carrito";
@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <NavBar
           cartCount={cartItems.reduce(
             (total, item) => total + item.quantity,
@@ -78,8 +78,9 @@ function App() {
             path="/detail/:id"
             element={<DetailPage addToCart={addToCart} />}
           />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
