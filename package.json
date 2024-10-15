@@ -1,7 +1,7 @@
 {
   "name": "tp3_desarrollo_software",
   "version": "0.1.0",
-  "homepage": "https://emanuelrubiolo.github.io/tp3_desarrollo_software",
+  "homepage": "https://VirgiDiaz.github.io/tp3_desarrollo_software",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
