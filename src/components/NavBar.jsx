@@ -5,7 +5,6 @@ export function NavBar({ cartCount }) {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid ">
-          <a className="navbar-brand" href="#"></a>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,7 +24,10 @@ export function NavBar({ cartCount }) {
                 </Link>
               </li>
               <li className="nav-item d-flex align-items-center">
-                <Link to="/page2" className="nav-link d-flex align-items-center">
+                <Link
+                  to="/page2"
+                  className="nav-link d-flex align-items-center"
+                >
                   <i className="bi bi-cart"></i>
                   <span className="ms-2">{cartCount}</span>
                 </Link>

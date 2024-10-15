@@ -19,7 +19,9 @@ export function Filtros({ filters, onFilterSelect }) {
           </h2>
           <div
             id={`collapse${index}`}
-            className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} 
+            className={`accordion-collapse collapse ${
+              index === 0 ? "show" : ""
+            }`}
             data-bs-parent="#acordeon"
           >
             <div className="accordion-body">
