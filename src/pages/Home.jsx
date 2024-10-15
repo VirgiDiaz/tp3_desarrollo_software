@@ -3,6 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 import SearchResults from "../components/SearchResults";
 import { Filtros } from "../components/Filtros"; 
+
+
 export function Home () {
 
 const [searchResults, setSearchResults]=useState(undefined);
@@ -36,12 +38,22 @@ const [appliedFilters, setAppliedFilters] = useState({});
 }
     return (
         <div className="page">
-            
+            <div className="container-xl">
+            <div className="row my-3">
             <BarraBusqueda onSearch={onSearch} />
+            </div>
+            <div className= "row">
+            <div className="col-2">
             {filters.length > 0 && (
             <Filtros filters={filters} onFilterSelect={onFilterSelect} /> 
-            )}
+            )}    
+            </div>
+            <div className="col">
             <SearchResults results={searchResults}/>
+            </div>
+            </div>  
+            </div>
+            
         </div>
     )
 }

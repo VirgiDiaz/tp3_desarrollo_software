@@ -4,6 +4,10 @@ import { Home } from './pages/Home';
 import { Carrito } from './pages/Carrito';
 import{ DetailPage } from './pages/DetailPage';
 import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 import './App.css';
 
 function App() {
@@ -20,7 +24,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <h1>React Router example</h1>
         <NavBar cartCount={cartItems.length} />
         <Routes>
           <Route path="/" element={<Home />} />

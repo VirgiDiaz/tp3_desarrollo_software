@@ -5,21 +5,25 @@ export default function SearchResults({results}) {
             {
                 results?
                 results.length === 0? 
-                    <div> No results found</div>: 
-                    <ul>
+                    <div> No hay resultados disponibles </div>: 
+                    <ul className="list-group list-group-flush">
                         {
                             results.map((result) => {
                                 return (
                                     <Link to={`/detail/${result.id}`} className="searchresultitem">
-                                    <li key={result.id}>
-                                        <p>{result.title}</p>
-                                        <p>${result.price}</p>
-                                        <p>{result.condition}</p>
-                                        <img src={result.thumbnail}/> 
-                                        <p> Vendido por: {result.official_store_name}</p>
-                                        {result.shipping.free_shipping && (
+                                    <li className="list-group-item" key={result.id}>
+                                        <div className="row">
+                                            <div className="col-2">
+                                            <img src={result.thumbnail} height="150px"/>             
+                                            </div>
+                                            <div className="col">
+                                            <p>{result.title}</p>
+                                            <p>${result.price}</p>
+                                            <p>{result.condition}</p>
+                                            {result.shipping.free_shipping && (
                                             <p style={{ color: 'green' }}>Envío gratis</p>
-                                        )}
+                                            )}</div>
+                                        </div>  
                                     </li>
                                     </Link>
                                 );

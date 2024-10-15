@@ -1,17 +1,29 @@
-export function Carrito({ cartItems, removeFromCart}) {
+import { Link } from 'react-router-dom';
+export function Carrito({ cartItems, removeFromCart }) {
     const total = cartItems.reduce((sum, item) => sum + item.price, 0);
     return (
       <div className="page">
         <h1>Tu Carrito</h1>
         {cartItems.length > 0 ? (
-          <ul>
+          <ul className="list-unstyled">
             {cartItems.map((item, index) => (
+              <Link to={`/detail/${item.id}`} className="searchresultitem">
               <li key={index}>
-                <p>{item.title}</p>
-                <p>${item.price}</p>
-                <img src={item.thumbnail} alt="Product" />
-                <button onClick={() => removeFromCart(item.id)}> Eliminar </button>
+                <div className="row">
+                  <div className="col-2">
+                  <img src={item.thumbnail} alt="Product" width="150px" />
+                  </div> 
+                  <div className="col">
+                  <p>{item.title}</p>
+                  <p>${item.price}</p>
+                  </div> 
+                  <div className="col">
+                  <button className="btn btn-danger" onClick={() => removeFromCart(item.id)}> Eliminar </button>
+                  </div>
+                </div>
+                
               </li>
+              </Link>
             ))}
           </ul>
         ) : (
