@@ -37,8 +37,8 @@ const [appliedFilters, setAppliedFilters] = useState({});
     });
 }
     return (
-        <div className="page">
-            <div className="container-xl">
+        <div className="page my-3">
+            <div className="container-xl shadow p-3 mb-5 bg-body-tertiary rounded">
             <div className="row my-3">
             <BarraBusqueda onSearch={onSearch} />
             </div>
@@ -53,7 +53,6 @@ const [appliedFilters, setAppliedFilters] = useState({});
             </div>
             </div>  
             </div>
-            
         </div>
     )
 }

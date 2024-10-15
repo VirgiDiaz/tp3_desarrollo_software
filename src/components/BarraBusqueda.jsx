@@ -7,7 +7,7 @@ const [termino, setSearchTerm] = useState("");
     <div className="container-fluid p-3">
       <form onSubmit={(e) => {e.preventDefault(); onSearch(termino);}} className="d-flex">
         <input type = "text" placeholder="Búsqueda" onChange={(e) => setSearchTerm(e.target.value)} className="form-control me-2"/>
-        <button className="btn btn-secondary"> Buscar </button>
+        <button className="btn btn-primary"> Buscar </button>
       </form>
     </div>
   );

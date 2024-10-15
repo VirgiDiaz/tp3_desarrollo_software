@@ -27,7 +27,7 @@ export function Filtros({ filters, onFilterSelect }) {
                 {filter.values.map((value) => (
                   <button
                     key={value.id}
-                    className="btn btn-outline-secondary"
+                    className="btn btn-outline-primary my-1"
                     onClick={() => onFilterSelect(filter.id, value.id)}
                   >
                     {value.name}

@@ -19,37 +19,53 @@ export function DetailPage({ addToCart }) {
     }, [id]);
 
     return (
-        <div>
-            {info ? (
+        <div className="container-xl py-3">
+            <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+                <div class="card-body ">
+                {info ? (
                 <div>
                     <div className="row">
+                    <Link  to="/">Volver</Link>
+                    </div>
+                    <div className="row">
                         <div className="col-2">
+                        
                             <img src={info.thumbnail} height="200px" alt={info.title} />
                         </div>
-                        <div className="col">
-                            <p>{info.title}</p>
-                            <p>${info.price}</p>
-                            <p>{info.condition}</p>
+                        <div className="col me-2">
+                            <h5>{info.title}</h5>
+                            <h6>${info.price}</h6>
+                            
                             {info.shipping.free_shipping && (
                                 <p style={{ color: 'green' }}>Envío gratis</p>
                             )}
-                            <Link className="btn btn-outline-primary mx-1" to="/">Volver</Link>
-                            <button className="btn btn-outline-primary" onClick={() => addToCart(info)}>Agregar al carrito</button>
+                            
+                            <button className="btn btn-outline-primary my-1" onClick={() => addToCart(info)}>Agregar al carrito</button>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row py-3">
+                    
                         {descripcion?.plain_text && (
-                            <>
+                            
+                            <div class="card  p-3 mb-5 bg-body-tertiary rounded">
+                            <div class="card-body ">
                                 <h6>Descripción</h6>
                                 <p>{descripcion.plain_text}</p>
-                            </>
+                                </div>
+                         </div>
+                            
                         )}
+                        
+                        
                     </div>
                 </div>
             ) : (
                 <p>Cargando ...</p>
             )}
 
+                </div>
+            </div>
+            
             
         </div>
     );
