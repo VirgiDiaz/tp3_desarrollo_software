@@ -12,14 +12,43 @@ import './App.css';
 
 function App() {
   const [cartItems, setCartItems] = useState([]); 
-  const addToCart = (product) => {
-    setCartItems((prevItems) => [...prevItems, product]);
-  };
-
+  
+  function addToCart(item) {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((cartItem) => cartItem.id === item.id);
+  
+      if (existingItem) {
+        return prevItems.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      } else {
+        return [...prevItems, { ...item, quantity: 1 }];
+      }
+    });
+  }
+  
   const removeFromCart = (productId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId));
   };
 
+  function decreaseQuantity(itemId) {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((cartItem) => cartItem.id === itemId);
+  
+      if (existingItem && existingItem.quantity > 1) {
+        return prevItems.map((cartItem) =>
+          cartItem.id === itemId
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        );
+      } else {
+        return prevItems.filter((cartItem) => cartItem.id !== itemId);
+      }
+    });
+  }
+  
 
   return (
     <div>
@@ -28,7 +57,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/page1" element={<Home />} />
-          <Route path="/page2" element={<Carrito cartItems={cartItems} removeFromCart={removeFromCart} />} />
+          <Route path="/page2" element={<Carrito cartItems={cartItems} removeFromCart={removeFromCart} decreaseQuantity={decreaseQuantity}/>} />
           <Route path="/detail/:id" element={<DetailPage addToCart={addToCart}/>} />
         </Routes>
       </BrowserRouter>
